@@ -3,6 +3,7 @@ INSA GE 2016/2017 - TDSI - Comptage et estimation d'une foule de piétons sur un
 
 
 CONTEXTE
+
 Analyse de fréquentation en extérieur
 
 CAHIER DES CHARGES
@@ -10,6 +11,7 @@ CAHIER DES CHARGES
 - Temps réel
 
 OBJECTIF 
+
 Démontrer la faisabilité du projet avec une séquence d'images pré-fournie.
 
 DONNEES
