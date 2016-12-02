@@ -2,14 +2,14 @@ clear all;
 close all;
 clc;
 
-addpath('images/pedxing-seq1');
+addpath('images/');
 
-idStart = 1599;
+idStart = 0;
 nbImg = 60;
 
 figure;
 id = idStart + 1;
-fileToload = ['0000',num2str(id),'.jpg'];
+fileToload = ['detection_',num2str(id,'%4.4u'),'.jpeg'];
 img = imread(fileToload);
 img = rgb2gray(img);
 imagesc(img); colormap(gray); axis image;
@@ -32,7 +32,7 @@ A = zeros(p,nbImg);
 for i=1:nbImg
    
     id = idStart + i;
-    fileToload = ['0000',num2str(id),'.jpg'];
+    fileToload = ['detection_',num2str(id,'%4.4u'),'.jpeg'];
     img = imread(fileToload);
     img = rgb2gray(img);
     imagesc(img); colormap(gray); axis image;
@@ -49,53 +49,7 @@ for i=1:nbImg
     end
 end
 
-%% Filtre moyenneur
-meanColumn = mean(A,2);
-Ac = A;
-for j=1:size(A,2)
-    Ac(:,j) = A(:,j) - meanColumn;  
-end
-figure; imagesc(Ac); colormap(gray);
+A = A';
 
-%% Blanc et noir
-Acc = convert(Ac); %Mise à l'échelle
-sz = size(Acc,1)*size(Acc,2);
-Hist = hist(reshape(Acc,[sz,1]),256);
-figure; hist(reshape(Acc,[sz,1]),256); axis([0 255 0 max(Hist)])
-hold on
-grid on
-[M maxAcc] = max(Hist);
 
-moyenne = mean(reshape(Acc,[sz,1]));
-std_desv = std(reshape(Acc,[sz,1]));
-pd = fitdist(reshape(Acc,[sz,1]),'Normal');
-x_pdf = (0:1:255);
-y = pdf(pd,x_pdf);
-scale = max(Hist)/max(y);
-plot(x_pdf,y.*scale)
 
-Gradiente = diff(Hist);
-
-par_hist = std_desv;
-index = find((Acc > maxAcc + par_hist) | (Acc < maxAcc - par_hist));
-Acc(index) = 255;
-index2 = find(Acc ~= 255);
-Acc(index2) = 0;
-figure; imagesc(Acc); colormap(gray);
-
-%% Erosion
-Ace = Acc;
-se = strel('square',3);
-Ace = imerode(Ace,se);
-figure; imagesc(Ace); colormap(gray);
-
-%% Dilatation
-Acd = Ace;
-se = strel('square',3);
-Acd = imdilate(Acd,se);
-figure; imagesc(Acd); colormap(gray);
-
-%% Counting
-Af = Acd;
-CC = bwconncomp(Af);
-disp(['Number of objects:',num2str(CC.NumObjects)])
