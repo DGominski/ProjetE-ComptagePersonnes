@@ -15,7 +15,8 @@ figure;
 histogram(Ac);
 
 %% DECOUPAGE DE L'IMAGE
-
+array = decoupe(img,300,200);
+figure;
 
 
 %% TRAINING SVM AVEC SET DE DONNEES DE REFERENCE
