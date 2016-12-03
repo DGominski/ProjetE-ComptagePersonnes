@@ -1,8 +1,0 @@
-function [ array ] = decoupe( A,n,m )
-%decoupe l'image en rectangles de nxm et renvoie un tableau contenant
-%toutes les images obtenues, decales de 1 pixel a chaque fois
-[k j] = size(A);
-
-for 
-end
-
