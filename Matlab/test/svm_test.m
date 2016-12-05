@@ -1,7 +1,7 @@
 clear all; 
 clc; 
 
-folder = 'gambar 1'; 
+folder = 'SVM'; 
 dirImage = dir( folder ); 
 
 numData = size(dirImage,1); 
@@ -26,18 +26,18 @@ for i=1:numData
     end 
 end
 %%
-idStart = 1745;idStop = 1756;
-M ={} ; 
-for id=idStart:idStop
-    B = cell(1,2); 
-    fileToload = ['0000',num2str(id),'.jpg'];
-    img = double(imread(fileToload));
-    img = rgb2gray(img);
-    index = (id-idStart+1);
-    B{1,1} = img;
-    B{1,2} = 1;
-    M = cat(1,M,B);  
-end
+% idStart = 1745;idStop = 1756;
+% M ={} ; 
+% for id=idStart:idStop
+%     B = cell(1,2); 
+%     fileToload = ['0000',num2str(id),'.jpg'];
+%     img = double(imread(fileToload));
+%     img = rgb2gray(img);
+%     index = (id-idStart+1);
+%     B{1,1} = img;
+%     B{1,2} = 1;
+%     M = cat(1,M,B);  
+% end
 %%
 % konversi gambar untuk keperluan SVM
 x = 480;

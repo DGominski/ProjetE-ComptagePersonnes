@@ -50,23 +50,23 @@ imgref = cat(3,piet,fond);
 
 for i=1:20
     refhorzarray(:,:,i) = filter2(horz,imgref(:,:,i));
-    refhorzarray(:,:,i) = refhorzarray(:,:,i) > 0.8;
+    refhorzarray(:,:,i) = refhorzarray(:,:,i) > 0.5;
     refhorzcount(i) = nnz(refhorzarray(:,:,i))/(size(refhorzarray,1)+size(refhorzarray,2));
     refvertarray(:,:,i) = filter2(vert,imgref(:,:,i));
-    refvertarray(:,:,i) = refvertarray(:,:,i) > 0.8;
+    refvertarray(:,:,i) = refvertarray(:,:,i) > 0.5;
     refvertcount(i) = nnz(refvertarray(:,:,i))/(size(refvertarray,1)+size(refvertarray,2));
     refdiagarray(:,:,i) = filter2(diag,imgref(:,:,i));
-    refdiagarray(:,:,i) = refdiagarray(:,:,i) > 0.8;
+    refdiagarray(:,:,i) = refdiagarray(:,:,i) > 0.5;
     refdiagcount(i) = nnz(refdiagarray(:,:,i))/(size(refdiagarray,1)+size(refdiagarray,2));
 end
 
 
-refset = cat(1,refhorzcount,refvertcount,refdiagcount);
+set = cat(1,refhorzcount,refvertcount,refdiagcount);
 group = [zeros(1,10) ones(1,10)];
 figure;
-svmStruct = svmtrain(refset',group','ShowPlot',true);
+svmStruct = svmtrain(set,group,'ShowPlot',true);
 
 %% CLASSIFICATION
 
-set = cat(1,horzcount,vertcount,diagcount);
-result = svmclassify(svmStruct',set','ShowPlot',true);
+
+result = svmclassify(svmStruct,Xnew,'ShowPlot',true)
