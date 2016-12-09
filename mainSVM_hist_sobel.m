@@ -43,7 +43,7 @@ dataHistArray = vec2mat(cell2mat([dataHistPiet dataHistFond]),H);
 
 %% Apprentissage
 
-svmStruct = svmtrain(dataHistArray,classType);
+svmStruct = svmtrain(dataHistArray,classType,'kernel_function','quadratic');
 
 
 %% Test avec vecteur d'apprentissage 
@@ -119,16 +119,15 @@ imgDecoupe = decoupe(img,wL,wH,dec);
 nb = size(imgDecoupe,3);
 indexAlea = ceil(rand(nb,1)*nb);
 
+
 dataTest2 = imgDecoupe(:,:,indexAlea);
 
-for i = 1:size(dataTest2,1)
+for i = 1:size(dataTest2,3)
     Gx_img = filter2(Gx,squeeze(dataTest2(:,:,i)));
     Gy_img = filter2(Gy,squeeze(dataTest2(:,:,i)));
     dataSobel = squeeze(sqrt(Gy_img.^2 + Gx_img.^2));
     h = histogram(dataSobel,H);
     rep = svmclassify(svmStruct,h.Values);
-    
- 
     if rep == 1
         disp('pieton');    
     else
