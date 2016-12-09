@@ -19,6 +19,7 @@ classType = [ones(size(pietData,1),1);zeros(size(fondData,1),1)];
 
 %%
 
+
 %% 
 figure;
 svmStruct = svmtrain(dataRef,classType,'ShowPlot',true);
