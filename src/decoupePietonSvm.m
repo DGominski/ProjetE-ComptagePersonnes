@@ -3,12 +3,12 @@ clear all;
 clc;
 
 % Decoupage de pieton pour la SVM
-chemin = '/home/jguichon/Documents/min_projet_git/ProjetE-ComptagePersonnes/Julien/dataPieton/';
+chemin = '/home/jguichon/Documents/min_projet_git/ProjetE-ComptagePersonnes/dataPieton/';
 addpath('/home/jguichon/Documents/min_projet_git/ProjetE-ComptagePersonnes/img');
-addpath(genpath('/home/jguichon/Documents/min_projet_git/ProjetE-ComptagePersonnes/Julien'));
+addpath(genpath('/home/jguichon/Documents/min_projet_git/ProjetE-ComptagePersonnes'));
 
-imgName = 'detection_0100.jpeg';
-imgOutputName = 'pieton_10.jpeg';
+imgName = 'detection_0500.jpeg';
+imgOutputName = 'fond_29.jpeg';
 
 xSize = 40;
 ySize = 100;

@@ -4,8 +4,8 @@ function [ array ] = decoupe( A,wL,wH,step)
 [H L] = size(A);
 
 index = 1;
-for l=1:step:L-wL
-    for h = 1:step:H-wH
+for h = 1:step:H-wH
+    for l=1:step:L-wL
         array(:,:,index) = A(h:(h+wH-1),l:(l+wL-1));
         index = index + 1;
     end
