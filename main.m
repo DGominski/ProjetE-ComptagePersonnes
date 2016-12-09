@@ -39,9 +39,62 @@ for i = 1:N
     close
 end
 
-dataHist = [dataHistPiet dataHistFond];
+dataHistArray = vec2mat(cell2mat([dataHistPiet dataHistFond]),H);
 
-%% 
+%% Apprentissage
 
 figure;
-svmStruct = svmtrain(dataRef,classType,'ShowPlot',true);
+svmStruct = svmtrain(dataHistArray,classType);
+
+
+%% Test avec vecteur d'apprentissage 
+clear dataAlea
+nb = 20;
+indexAlea = ceil(rand(nb,1)*nb);
+dataAlea = dataHistArray(indexAlea,:);
+
+%% SVM 
+
+rep = svmclassify(svmStruct,dataAlea);
+
+%% Load data
+
+addpath('src');
+
+imgName = ['detection_',num2str(200,'%0.4d'),'.jpeg'];
+img = rgb2gray(imread(imgName));
+
+wL = 40;
+wH = 100;
+dec = 10;
+imgDecoupe = decoupe(img,wL,wH,dec);
+
+% for i=1:size(imgDecoupe,3)
+%     imagesc(imgDecoupe(:,:,i));colormap(gray);
+%     pause
+% end
+
+%% 
+num = 100000;
+nImg = 1000;
+for i = 1:size(imgDecoupe,3)
+    i
+    
+    Gx_img = filter2(Gx,squeeze(imgDecoupe(:,:,i)));
+    Gy_img = filter2(Gy,squeeze(imgDecoupe(:,:,i)));
+    dataSobel = squeeze(sqrt(Gy_img.^2 + Gx_img.^2));
+    h = histogram(dataSobel,H);
+    dataHistImg{i} = h.Values;
+
+    close
+end
+
+dataHistArrayImg = vec2mat(cell2mat(dataHistImg),H);
+
+%%
+rep = svmclassify(svmStruct,dataHistArrayImg);
+repMat = vec2mat(rep,(480-100)/10);
+subplot(1,2,1);imagesc(repMat);colormap(gray);axis equal;
+subplot(1,2,2);imagesc(img);colormap(gray);axis equal;
+
+clc
