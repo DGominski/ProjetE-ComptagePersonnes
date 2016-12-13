@@ -28,6 +28,9 @@ figure;
 
 %% EXTRACTION DE DESCRIPTEURS LOCAUX SUR LES BLOCS
 
+for i=1:nombre_de_fenetres_testees
+    hogData = extractHOGFeatures(double(array(:,:,i)),'CellSize',HOG_cell);
+end
 
 
 %% CLASSIFICATION
