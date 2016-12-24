@@ -1,13 +1,16 @@
-function [ array ] = decoupe( A,wL,wH,step)
+function [ array, decoupepos ] = decoupe( A,wL,wH,step)
 %decoupe l'image en rectangles de nxm et renvoie un tableau contenant
 %toutes les images obtenues, decales de dec pixels a chaque fois
 [H L] = size(A);
 
 index = 1;
+array = zeros(H,L,(-1+floor((H-wH)/step))*floor((L-wL)/step));
 for h = 1:step:H-wH
     for l=1:step:L-wL
         array(:,:,index) = A(h:(h+wH-1),l:(l+wL-1));
         index = index + 1;
+        decoupepos(1,index) = h;
+        decoupepos(2,index) = l;
     end
 end
 
