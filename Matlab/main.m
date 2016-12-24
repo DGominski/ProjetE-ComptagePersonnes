@@ -2,13 +2,12 @@ clear all;
 close all;
 clc;
 
-addpath('/img'); %données
-addpath('/data'); %set d'apprentissage
-
 
 %% TRAINING SVM
 
-
+Nref = 10;
+HOG_cell = [8 8];
+trainSVM;
 
 %% ACQUISITION DE L'IMAGE
 
@@ -22,19 +21,24 @@ img = rgb2gray(img);
 % histogram(Ac);
 
 %% DECOUPAGE DE L'IMAGE
-array = decoupe(img,40,100,10);
+
+array = decoupe(img,40,100,20);
 nombre_de_fenetres_testees = size(array,3)
-figure;
 
 %% EXTRACTION DE DESCRIPTEURS LOCAUX SUR LES BLOCS
 
 for i=1:nombre_de_fenetres_testees
-    hogData = extractHOGFeatures(double(array(:,:,i)),'CellSize',HOG_cell);
+    hogData(i,:) = extractHOGFeatures(double(array(:,:,i)),'CellSize',HOG_cell);
 end
 
 
 %% CLASSIFICATION
 
-n = randn(1:20
-set = cat(1,horzcount,vertcount,diagcount);
-result = svmclassify(svmStruct',set');
+for i=1:nombre_de_fenetres_testees
+    result(i) = svmclassify(svmStruct,hogData(i,:));
+end
+
+
+%% GESTION DES IDENTIFICATIONS REDONDANTES
+
+
