@@ -6,27 +6,32 @@ Y = 280;
 
 %% TRAINING SVM
 
-Nref = 20;
-HOG_cell = [2 2];
+Nref = 30;
+HOG_cell = [3 3];
 trainSVM;
 
 %% ACQUISITION DE L'IMAGE
 
-img = imread('detection_0330.jpeg');
-img = rgb2gray(img);
+for i=1:504
+    imgarray(:,:,i) = rgb2gray(imread(['detection_',num2str(i,'%4.4u'),'.jpeg']));
+end
 
-%% MOYENNAGE POUR ELIMINATION DE L'ARRIERE PLAN
 
-% Ac = backgroundfilter(A);
-% figure;
-% histogram(Ac);
+%% BOUCLE PRINCIPALE
+
+
+
+for K=320:504
+    
+A = imgarray(:,:,K);
+
 
 %% DECOUPAGE DE L'IMAGE
 
 figure;
-imagesc(img); colormap gray;
+imagesc(A); colormap gray;
 hold on; line([0 640], [Y Y]);
-[array,decoupepos] = decoupe(img(280:480,:),40,100,40);
+[array,decoupepos] = decoupe(A(280:480,:),40,100,45);
 nombre_de_fenetres_testees = size(array,3)
 
 %% EXTRACTION DE DESCRIPTEURS LOCAUX SUR LES BLOCS
@@ -48,11 +53,13 @@ end
 
 %% DESSIN DES BOITES DE DETECTION
 
+hold on;
 for i=1:nombre_de_fenetres_testees
     if result(i) == 1
-        figure;
-        imagesc(array(:,:,i));
+        rectangle('Position', [decoupepos(2,i+1), decoupepos(1,i+1)+280, 40, 100],'EdgeColor','r', 'LineWidth', 1)
     end
 end
 
+waitforbuttonpress;
+end
 
