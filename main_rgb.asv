@@ -11,6 +11,7 @@ img = mat2gray(imread(imgName));
 [pts,index] = setDetectionLine(img);
 
 
+
 % Boucle
 nToStart = 0;
 nToEnd = 100;
@@ -24,7 +25,6 @@ temp = img;
 close all;
 figure;
 nb = 0;
-fps = 0;
 for n = 0:500
     tStart = tic;
     
@@ -49,9 +49,9 @@ for n = 0:500
     ligneSansBg = abs(imgChrono(:,1,:)-permute(ligneFond,[2 1 3])); 
     
     % Seuillage
-    seuilR =0.18;
-    seuilG = 0.18;
-    seuilB = 0.18;
+    seuilR = mean(ligneFond(:,:,1));
+    seuilG = mean(ligneFond(:,:,2));
+    seuilB = mean(ligneFond(:,:,3));
     temp = imgBin;
     imgBin(:,2:nbImg,:) = temp(:,1:nbImg-1,:);
     imgBin(:,1,1) = im2bw(ligneSansBg,seuilR);
@@ -71,21 +71,23 @@ for n = 0:500
     % Visualisation
     H = 2;
     L = 2;
-    subplot(H,L,1);imagesc(imgNorm);colormap(gray); axis image;title(['image initiale    fps :',num2str(fps)]);
-    hold on;plot([pts(1,1) pts(2,1)],[pts(1,2) pts(2,2)],'-g');
-    subplot(H,L,3);imagesc(imgChrono');colormap(gray); axis image;title('image chronologique');
-    subplot(H,L,4);imagesc(imgOpen');colormap(gray); axis image;title(['nb de pieton :',num2str(nb)]);
+    subplot(H,L,1);imagesc(imgNorm);colormap(gray); axis image;title('image initiale');
+    hold on;plot([pts(1,1) pt2(1)],[pt1(2) pt2(2)],'-g');
+    subplot(H,L,2);imagesc(imgOpen');colormap(gray); axis image;title(nb);
     hold on;plot([0 size(imgOpen,1)],[50 50],'r');
     nbCenter = size(center,1);
     if nbCenter > 0
         for i=1:nbCenter
             hold on;plot(center(i).Centroid(2),center(i).Centroid(1),'r*');
             if round(center(i).Centroid(1)) == 50
-                nb = nb + 1;  
+                nb = nb + 1;
+                
             end
         end
     end
    
-   fps =1/ toc(tStart)
+   f =1/ toc(tStart)
    pause(0.001);
+    
+    
 end

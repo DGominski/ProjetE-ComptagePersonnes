@@ -1,7 +1,7 @@
 function [pts,index] = setDetectionLine(img)
 
 figure;
-imagesc(img); colormap(gray); axis image;
+imagesc(img);
 
 [x,y] = ginput(2)
 pt1 =[x(1) y(1)];
