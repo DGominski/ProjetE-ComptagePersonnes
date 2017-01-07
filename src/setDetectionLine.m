@@ -1,4 +1,4 @@
-function [pts,vectIndexLigne] = setDetectionLine(img)
+function [pts,index] = setDetectionLine(img)
 
 figure;
 imagesc(img); colormap(gray); axis image;
@@ -21,7 +21,7 @@ deltaY = abs(pt2(2)-pt1(2));
 p = round(sqrt(deltaX^2 + deltaY^2));
 
 for t=0:p
-    vectIndexLigne(t) = round(pt1 + v*t/p);
+    index(:,t+1) = round(pt1 + v*t/p);
 end
     
 
