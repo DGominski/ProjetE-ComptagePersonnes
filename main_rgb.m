@@ -5,6 +5,10 @@ clc;
 addpath('img');
 addpath('src');
 
+freqAff = 1; % 4 => 1 sur 4 images
+H = 2;
+L = 2;
+    
 % Ligne de détection
 imgName = 'detection_0000.jpeg';
 img = mat2gray(imread(imgName));
@@ -41,6 +45,11 @@ for n = 0:500
     for i = 1:size(index,2)
       imgChrono(i,1,:) = imgNorm(index(2,i),index(1,i),:);
     end
+    if n == 0
+        for i = 2:nbImg
+            imgChrono(:,i,:) = imgChrono(:,1,:);
+        end
+    end
     
     % Calcul du fond
     ligneFond = mean(permute(imgChrono,[2 1 3]));
@@ -49,9 +58,9 @@ for n = 0:500
     ligneSansBg = abs(imgChrono(:,1,:)-permute(ligneFond,[2 1 3])); 
     
     % Seuillage
-    seuilR =0.18;
-    seuilG = 0.18;
-    seuilB = 0.18;
+    seuilR =0.15; % A AJUSTER !!!!!!!!
+    seuilG = 0.15; % A AJUSTER !!!!!!!!
+    seuilB = 0.15; % A AJUSTER !!!!!!!!
     temp = imgBin;
     imgBin(:,2:nbImg,:) = temp(:,1:nbImg-1,:);
     imgBin(:,1,1) = im2bw(ligneSansBg,seuilR);
@@ -63,23 +72,29 @@ for n = 0:500
     imgHole = imfill(imgBinGray,'holes');
     
     % Dilatation/Erosion
-    imgOpen = imopen(imgHole,strel('disk',5));
+    imgOpen = imopen(imgHole,strel('disk',5)); % A AJUSTER !!!!!!!!
     
     % Centrer des formes
     center = regionprops(imgOpen, {'Centroid'});
     
     % Visualisation
-    H = 2;
-    L = 2;
-    subplot(H,L,1);imagesc(imgNorm);colormap(gray); axis image;title(['image initiale    fps :',num2str(fps)]);
-    hold on;plot([pts(1,1) pts(2,1)],[pts(1,2) pts(2,2)],'-g');
-    subplot(H,L,3);imagesc(imgChrono');colormap(gray); axis image;title('image chronologique');
-    subplot(H,L,4);imagesc(imgOpen');colormap(gray); axis image;title(['nb de pieton :',num2str(nb)]);
-    hold on;plot([0 size(imgOpen,1)],[50 50],'r');
+    if mod(n,freqAff) == 0
+        subplot(H,L,1);imagesc(imgNorm);colormap(gray); axis image;title(['image initiale    fps :',num2str(fps)]);
+        hold on;plot([pts(1,1) pts(2,1)],[pts(1,2) pts(2,2)],'-g');
+        subplot(H,L,3);imagesc(permute(imgChrono,[2 1 3]));colormap(gray); axis image;title('image chronologique');
+        subplot(H,L,4);imagesc(imgOpen');colormap(gray); axis image;title(['nb de pieton :',num2str(nb)]);
+        hold on;plot([0 size(imgOpen,1)],[50 50],'r');
+    end
+    
+    % Comptage et affichage des centres
     nbCenter = size(center,1);
     if nbCenter > 0
         for i=1:nbCenter
-            hold on;plot(center(i).Centroid(2),center(i).Centroid(1),'r*');
+            % Affichage
+            if mod(n,freqAff) == 0
+                hold on;plot(center(i).Centroid(2),center(i).Centroid(1),'r*');
+            end
+            % Comptage
             if round(center(i).Centroid(1)) == 50
                 nb = nb + 1;  
             end
