@@ -9,7 +9,7 @@ freqAff = 1; % 4 => 1 sur 4 images
 H = 2;
 L = 2;
     
-% Ligne de détection
+% Ligne de dï¿½tection
 imgName = 'detection_0000.jpeg';
 img = mat2gray(imread(imgName));
 [pts,index] = setDetectionLine(img);
@@ -39,7 +39,7 @@ for n = 0:500
     % Normalisation
     imgNorm = mat2gray(img);
     
-    % Récupération des pixels sur la ligne de détection
+    % Rï¿½cupï¿½ration des pixels sur la ligne de dï¿½tection
     temp = imgChrono;
     imgChrono(:,2:nbImg,:) = temp(:,1:nbImg-1,:);
     for i = 1:size(index,2)
@@ -68,7 +68,7 @@ for n = 0:500
     imgBin(:,1,3) = im2bw(ligneSansBg,seuilB);
     imgBinGray = imgBin(:,:,1)|imgBin(:,:,2)|imgBin(:,:,3);
 
-    % Supprésion d'éventuelle trou
+    % Supprï¿½sion d'ï¿½ventuelle trou
     imgHole = imfill(imgBinGray,'holes');
     
     % Dilatation/Erosion
@@ -100,7 +100,6 @@ for n = 0:500
             end
         end
     end
-   
-   fps =1/ toc(tStart)
+   fps =1/ toc(tStart);
    pause(0.001);
 end
