@@ -6,6 +6,7 @@
 \usepackage{spconf,amsmath,graphicx}
 \usepackage[frenchb]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 
 % Example definitions.
 % --------------------
@@ -23,7 +24,7 @@
 %
 
 
-\name{Berta Bescos \qquad Julien Guichon \qquad Dimitri Gominski}
+\name{Berta Bescos \qquad Julien Guichon \qquad Dimitri Gominski \qquad}
 
 \address{}
 	
@@ -34,52 +35,48 @@
 %
 \begin{abstract}
 	
-Le développement de techniques fiables pour la détection de piétons dans les systèmes numériques est une problématique récente, et porteuse d'enjeux pour de nombreux domaines tels que la sécurité, la robotique, la maîtrise des flux humains en urbanisme... 
-
-The abstract should appear at the top of the left-hand column of text, about
-0.5 inch (12 mm) below the title area and no more than 3.125 inches (80 mm) in
-length.  Leave a 0.5 inch (12 mm) space between the end of the abstract and the
-beginning of the main text.  The abstract should contain about 100 to 150
-words, and should be identical to the abstract text submitted electronically
-along with the paper cover sheet.  All manuscripts must be in English, printed
-in black ink.
+	The range of pedestrian detection techniques, in order to achieve better performance and efficiency, is getting more and more complex, and thus the implementation of these algorithms can become time-consuming in conception phase.
+	
+	By using 2 different approaches, we demonstrate the impact of acquisition context on the performance of these methods, and study the viability of a "naive" algorithm versus a modern version of object identification applied to pedestrian detection.
 \end{abstract}
 %
-\begin{keywords}
-One, two, three, four, five
-%http://www.ieee.org/organizations/pubs/ani_prod/keywrd98.txt.
-\end{keywords}
+
 %
 \section{Introduction}
 \label{sec:intro}
+	Le développement de techniques fiables pour la détection de piétons dans les systèmes numériques est une problématique récente, et porteuse d'enjeux pour de nombreux domaines tels que la sécurité, la robotique, la maîtrise des flux humains en urbanisme... 
 
-These guidelines include complete descriptions of the fonts, spacing, and
-related information for producing your proceedings manuscripts. Please follow
-them and if you have any questions, direct them to Conference Management
-Services, Inc.: Phone +1-979-846-6800 or email
-to \\\texttt{papers@icip13.org}.
+	Le coeur de la chaîne de traitement visant à associer à une zone spécifique de l'image une classe (piéton/non-piéton) repose sur 2 opérations élémentaires : la description et la décision. La description extrait des caractéristiques de ladite zone en fournissant des valeurs numériques caractérisant la forme, l'intensité et la texture. De cette manière on associe un ensemble d'informations quantifiées à un objet pour l'instant non-identifié. La décision, en synthétisant toutes ces valeurs numériques, donne un résultat binaire sur l'appartenance de l'objet à une classe.
 
-\section{Formatting your paper}
+	Il va de soi que l'exhaustivité des descripteurs et la précision des classifieurs (organes de décision) sont la clé d'algorithmes infaillibles, mais elles se traduisent invariablement par plus de complexité, et si des précautions ne sont pas prises, par un temps de calcul allongé. Le choix du descripteur et du classifieur est un sujet sensible à de nombreuses contraintes, et dépend fortement des données disponibles pour la conception, des conditions d'utilisation de l'algorithme, et des performances attendues. L'étude des différents descripteurs et classifieurs s'est faite de manière empirique dans les 20 dernières années, et une large bibliographie est disponible pour les caractériser et préciser les conditions dans lesquels ils fournissent les meilleurs résultats.
+
+	Ce rapport décrit les performances obtenues avec 2 algorithmes courants tirés de 2 approches différentes du problème de l'identification et du comptage d'un flux épars de piétons.
+
+\section{\'{E}TUDE BIBLIOGRAPHIQUE CHRONOLOGIQUE}
 \label{sec:format}
 
-All printed material, including text, illustrations, and charts, must be kept
-within a print area of 7 inches (178 mm) wide by 9 inches (229 mm) high. Do
-not write or print anything outside the print area. The top margin must be 1
-inch (25 mm), except for the title page, and the left margin must be 0.75 inch
-(19 mm).  All {\it text} must be in a two-column format. Columns are to be 3.39
-inches (86 mm) wide, with a 0.24 inch (6 mm) space between them. Text must be
-fully justified.
+	Dès 1985, T. Tsukiyama et Y. Shirai [5] ont proposé une technique rudimentaire d'identification humaine en travaillant avec l'intensité pixel par pixel.
 
-\section{PAGE TITLE SECTION}
+	En 1997 est proposée au MIT [4] une technique innovante de description des formes basée sur les ondelettes de Haar, associée à un classifieur SVM. L'idée de séparer descripteur et classifieur est depuis devenue un standard dans ce domaine.
+
+	En 1998, cette technique est perfectionnée [6] pour la rendre universelle en incluant un apprentissage le plus complet possible avec un set de données dédiées, pour permettre l'exécution dans des conditions variées. L'article introduit également la notion d'échelle variable pour la fenêtre de détection.
+
+	Dalal \& Triggs [2] publient en 2005 un article de référence dans le domaine (+6000 citations). Ils expliquent une méthode complète, d'implémentation relativement simple, pour mettre en place une chaîne de détection de performances correctes. Leur méthode repose sur l'histogramme des gradients orientés pour décrire la forme d'un piéton, et la décision se fait avec une SVM (support vector machine) linéaire.
+
+	Depuis, de nombreuses nouvelles approches ont été proposées, citons entre autres l'utilisation des informations de couleur [8], du mouvement [10], du bootstrapping (réutilisation des résultats, re-training) [8], de très larges sets de données d'apprentissages acquises par data-mining [11]  \textit{etc.}, avec la problématique du temps de calcul toujours au coeur du problème [9].
+
+
+\section{CONTEXTE}
 \label{sec:pagestyle}
 
-The paper title (on the first page) should begin 1.38 inches (35 mm) from the
-top edge of the page, centered, completely capitalized, and in Times 14-point,
-boldface type.  The authors' name(s) and affiliation(s) appear below the title
-in capital and lower case letters.  Papers with multiple authors and
-affiliations may require two or more lines for this information. Please note
-that papers should not be submitted blind; include the authors' names on the
-PDF.
+	Dans le cadre de l'étude de faisabilité d'un algorithme de détection en temps réel à 95\% de précision, nous disposons d'un set de données d'entrées dans des conditions relativement favorables (voir Figure 1). La caméra fournissant ces images est fixe, les seuls évènements d'occlusion concernent les croisements de piétons, et la zone concernée est une section de route fréquentée uniquement par des piétons, ce qui limite les risques de confusion avec du mobilier urbain ou des véhicules. Les seules contraintes sont l'orientation légèrement verticale de la caméra (ce qui limite la surface identifiable du corps humain) et la profondeur de champ qui implique de devoir gérer les changements d'échelle.
+	
+	\begin{figure}
+		\begin{center}			
+			\includegraphics[scale=0.3]{Img/detection_0156}
+		\end{center}
+		\caption{Données d'entrée}
+	\end{figure}
 
 \section{TYPE-STYLE AND FONTS}
 \label{sec:typestyle}

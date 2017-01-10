@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.9)  9 JAN 2017 22:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.9)  10 JAN 2017 20:30
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -467,19 +467,19 @@ Now handling font encoding U ...
 )) (Rapport.aux)
 \openout1 = `Rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 31.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -542,78 +542,100 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Info: Redefining \degres on input line 30.
+LaTeX Info: Redefining \degres on input line 31.
 
 
 Package frenchb.ldf Warning: Figures' and tables' captions might look like
 (frenchb.ldf)                `Figure 1:' which is wrong in French.
 (frenchb.ldf)                Check your class or packages to change this;
-(frenchb.ldf)                reported on input line 30.
+(frenchb.ldf)                reported on input line 31.
 
-LaTeX Info: Redefining \dots on input line 30.
-LaTeX Info: Redefining \up on input line 30.
+LaTeX Info: Redefining \dots on input line 31.
+LaTeX Info: Redefining \up on input line 31.
 
 Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(frenchb.ldf)                of your document, on input line 30.
+(frenchb.ldf)                of your document, on input line 31.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 35.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 
-Overfull \hbox (4.3635pt too wide) in paragraph at lines 37--38
+Overfull \hbox (4.3635pt too wide) in paragraph at lines 47--48
 \OT1/ptm/m/n/10 de pi[]etons dans les syst[]emes num[]eriques est une probl[]em
 atique
  []
 
-LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 48.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 60.
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+
+Overfull \hbox (0.13757pt too wide) in paragraph at lines 64--65
+\OT1/ptm/m/n/10 dans le do-maine (+6000 ci-ta-tions). Ils ex-pliquent une m[]et
+hode
+ []
+
+
+Underfull \hbox (badness 1231) in paragraph at lines 64--65
+\OT1/ptm/m/n/10 en place une cha[]ne de d[]etection de per-for-mances cor-
+ []
+
+
+Underfull \hbox (badness 1776) in paragraph at lines 66--67
+[]\OT1/ptm/m/n/10 Depuis, de nom-breuses nou-velles ap-proches ont []et[]e
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 66--67
+\OT1/ptm/m/n/10 pro-pos[]ees, ci-tons entre autres l'uti-li-sa-tion des in-for-
+ma-
+ []
+
+<Img/detection_0156.jpeg, id=1, 642.4pt x 481.8pt>
+File: Img/detection_0156.jpeg Graphic file (type jpg)
+
+<use Img/detection_0156.jpeg>
+Package pdftex.def Info: Img/detection_0156.jpeg used on input line 76.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+ [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 
-]
-<image1.png, id=10, 260.47313pt x 57.21375pt>
+] <image1.png, id=9, 260.47313pt x 57.21375pt>
 File: image1.png Graphic file (type png)
  <use image1.png>
-Package pdftex.def Info: image1.png used on input line 177.
+Package pdftex.def Info: image1.png used on input line 174.
 (pdftex.def)             Requested size: 241.84842pt x 53.12267pt.
 
-<image3.png, id=11, 231.11343pt x 143.03438pt>
+<image3.png, id=10, 231.11343pt x 143.03438pt>
 File: image3.png Graphic file (type png)
  <use image3.png>
-Package pdftex.def Info: image3.png used on input line 184.
+Package pdftex.def Info: image3.png used on input line 181.
 (pdftex.def)             Requested size: 113.81102pt x 70.43665pt.
 
-<image4.png, id=12, 231.11343pt x 143.03438pt>
+<image4.png, id=11, 231.11343pt x 143.03438pt>
 File: image4.png Graphic file (type png)
  <use image4.png>
-Package pdftex.def Info: image4.png used on input line 191.
+Package pdftex.def Info: image4.png used on input line 188.
 (pdftex.def)             Requested size: 113.81102pt x 70.43665pt.
- (Rapport.bbl)
-[2 <./image1.png (PNG copy)> <./image3.png (PNG copy)> <./image4.png (PNG copy)
->] (Rapport.aux) ) 
+ [2 <./Img/detection_0156.jpeg>] (Rapport.bbl) [3
+
+ <./image1.png (PNG copy)> <./image3.png (PNG copy)> <./image4.png (PNG copy)>]
+ (Rapport.aux) ) 
 Here is how much of TeX's memory you used:
- 3645 strings out of 493333
- 47881 string characters out of 3139189
- 121203 words of memory out of 3000000
- 7110 multiletter control sequences out of 15000+200000
- 18360 words of font info for 43 fonts, out of 3000000 for 9000
+ 3617 strings out of 493333
+ 47503 string characters out of 3139189
+ 123205 words of memory out of 3000000
+ 7084 multiletter control sequences out of 15000+200000
+ 16216 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,7n,30p,291b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
-/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rapport.pdf (2 pages, 90447 bytes).
+ 40i,7n,30p,820b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/tim
+es/utmri8a.pfb>
+Output written on Rapport.pdf (3 pages, 131167 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
+ 33 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-[1] Benenson R., Omran M., Hosang J., Schiele B. (2015) Ten Years of Pedestrian Detection, What Have We Learned?. In: Agapito L., Bronstein M., Rother C. (eds) Computer Vision - ECCV 2014 Workshops. ECCV 2014. Lecture Notes in Computer Science, vol 8926. Springer, Cham
+﻿[1] Benenson R., Omran M., Hosang J., Schiele B. (2015) Ten Years of Pedestrian Detection, What Have We Learned?. In: Agapito L., Bronstein M., Rother C. (eds) Computer Vision - ECCV 2014 Workshops. ECCV 2014. Lecture Notes in Computer Science, vol 8926. Springer, Cham
 [2] Navneet Dalal, Bill Triggs. Histograms of Oriented Gradients for Human Detection. Cordelia Schmid and Stefano Soatto and Carlo Tomasi. International Conference on Computer Vision & Pattern Recognition (CVPR '05), Jun 2005, San Diego, United States. IEEE Computer Society, 1, pp.886--893, 2005, <http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=1467360>. <10.1109/CVPR.2005.177>. <inria-00548512>
 [3] V. Depoortere et al., "Efficient pedestrian detection: a test case for SVM based categorization", DAGM'02, Cognitive Vision Workshop
 [4] M. Oren, C. Papageorgiou, P. Sinha, E. Osuna, and T. Poggio. Pedestrian detection using wavelet templates. CVPR’97, June 1997
@@ -8,3 +8,4 @@
 [8] Walk, S., Majer, N., Schindler, K., Schiele, B.: New features and insights for pedestrian detection. In: CVPR. (2010)
 [9] Dollár, P., Belongie, S., Perona, P.: The fastest pedestrian detector in the west. In: BMVC. (2010)
 [10] Viola, P., Jones, M., Snow, D.: Detecting pedestrians using patterns of motion and appearance. In: CVPR. (2003)
+[11] P. Dollár, Z. Tu, H.T., Belongie, S.: Feature mining for image classification. In:CVPR. (2007)
