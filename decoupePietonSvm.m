@@ -37,7 +37,7 @@ index = 1;
 for i = 1:100
     imgNameTest = ['pieton_',num2str(i,'%0.4d'),'.jpeg'];
     imgNameOut = ['pieton_',num2str(index,'%0.4d'),'.jpeg'];
-    if fopen([chemin,imgNameTest]) ~= -1
+    if fopen([chemin,imgNameTest]) ~= -1 % TODO => exist(fondName,'file') == 2
         img = imread([chemin,imgNameTest]);
         imwrite(img,[cheminOut,imgNameOut],'jpeg');
         index = index + 1;
