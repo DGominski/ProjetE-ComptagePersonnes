@@ -5,6 +5,7 @@ clc;
 addpath('dataSetPietonRGB');
 addpath('dataSetFondRGB');
 addpath('src');
+addpath('img');
 
 %% 
 N = 36;
@@ -59,11 +60,22 @@ wH = 40;
 dec = 10;
 vectImgDecoupe = decoupeVectRGB(img,wL,wH,dec);
 
-for i = 1:size(dataTest,3)
+% 2376 = (480-40)*(640-100)/100
+
+%%
+
+addpath('data');
+load('vectImgDecoupe.mat');
+addpath('dataDetect');
+cheminOut = '/home/jguichon/Documents/min_projet_git/ProjetE-ComptagePersonnes/dataDetect/';
+
+for i = 1:size(vectImgDecoupe,1)
     i
-    temp = dataTest(:,:,i);
-    rep(i) = svmclassify(svmStruct,temp(:)');
-    
+    rep(i) = svmclassify(svmStruct,vectImgDecoupe(i,:));
+    if rep(i) == 1
+        imgNameOut = ['det_',num2str(i,'%0.4d'),'.jpeg'];
+        imwrite(reshape(vectImgDecoupe(i,:),[100,40,3]),[cheminOut,imgNameOut],'jpeg');
+    end
     close
 end
 
