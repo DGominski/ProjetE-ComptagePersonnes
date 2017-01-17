@@ -24,7 +24,7 @@
 %
 
 
-\name{Berta Bescos \qquad Julien Guichon \qquad Dimitri Gominski \qquad}
+\name{Berta Besc\'{o}s Torcal \qquad Julien Guichon \qquad Dimitri Gominski \qquad}
 
 \address{}
 	
@@ -53,23 +53,23 @@
 	Ce rapport décrit les performances obtenues avec 2 algorithmes courants tirés de 2 approches différentes du problème de l'identification et du comptage d'un flux épars de piétons.
 
 \section{\'{E}TUDE BIBLIOGRAPHIQUE CHRONOLOGIQUE}
-\label{sec:format}
+\label{sec:bib}
 
-	Dès 1985, T. Tsukiyama et Y. Shirai [5] ont proposé une technique rudimentaire d'identification humaine en travaillant avec l'intensité pixel par pixel.
+	Dès 1985, T. Tsukiyama et Y. Shirai \cite{TV} ont proposé une technique rudimentaire d'identification humaine en travaillant avec l'intensité pixel par pixel.
 
-	En 1997 est proposée au MIT [4] une technique innovante de description des formes basée sur les ondelettes de Haar, associée à un classifieur SVM. L'idée de séparer descripteur et classifieur est depuis devenue un standard dans ce domaine.
+	En 1997 est proposée au MIT \cite{Wavelet} une technique innovante de description des formes basée sur les ondelettes de Haar, associée à un classifieur SVM. L'idée de séparer descripteur et classifieur est depuis devenue un standard dans ce domaine.
 
-	En 1998, cette technique est perfectionnée [6] pour la rendre universelle en incluant un apprentissage le plus complet possible avec un set de données dédiées, pour permettre l'exécution dans des conditions variées. L'article introduit également la notion d'échelle variable pour la fenêtre de détection.
+	En 1998, cette technique est perfectionnée \cite{trainableDet} pour la rendre universelle en incluant un apprentissage le plus complet possible avec un set de données dédiées, pour permettre l'exécution dans des conditions variées. L'article introduit également la notion d'échelle variable pour la fenêtre de détection.
 
-	Dalal \& Triggs [2] publient en 2005 un article de référence dans le domaine (+6000 citations). Ils expliquent une méthode complète, d'implémentation relativement simple, pour mettre en place une chaîne de détection de performances correctes. Leur méthode repose sur l'histogramme des gradients orientés pour décrire la forme d'un piéton, et la décision se fait avec une SVM (support vector machine) linéaire.
+	Dalal \& Triggs \cite{HOG} publient en 2005 un article de référence dans le domaine (+6000 citations). Ils expliquent une méthode complète, d'implémentation relativement simple, pour mettre en place une chaîne de détection de performances correctes. Leur méthode repose sur l'histogramme des gradients orientés pour décrire la forme d'un piéton, et la décision se fait avec une SVM (support vector machine) linéaire.
 
-	Depuis, de nombreuses nouvelles approches ont été proposées, citons entre autres l'utilisation des informations de couleur [8], du mouvement [10], du bootstrapping (réutilisation des résultats, re-training) [8], de très larges sets de données d'apprentissages acquises par data-mining [11]  \textit{etc.}, avec la problématique du temps de calcul toujours au coeur du problème [9].
+	Depuis, de nombreuses nouvelles approches ont été proposées, citons entre autres l'utilisation des informations de couleur \cite{NewPedDet}, du mouvement \cite{VJones}, du bootstrapping (réutilisation des résultats, re-training) \cite{NewPedDet}, de très larges sets de données d'apprentissages acquises par data-mining \cite{FeatMining}  \textit{etc.}, avec la problématique du temps de calcul toujours au coeur du problème \cite{cowboy}.
 
 
 \section{CONTEXTE}
-\label{sec:pagestyle}
+\label{sec:contexte}
 
-	Dans le cadre de l'étude de faisabilité d'un algorithme de détection en temps réel à 95\% de précision, nous disposons d'un set de données d'entrées dans des conditions relativement favorables (voir Figure 1). La caméra fournissant ces images est fixe, les seuls évènements d'occlusion concernent les croisements de piétons, et la zone concernée est une section de route fréquentée uniquement par des piétons, ce qui limite les risques de confusion avec du mobilier urbain ou des véhicules. Les seules contraintes sont l'orientation légèrement verticale de la caméra (ce qui limite la surface identifiable du corps humain) et la profondeur de champ qui implique de devoir gérer les changements d'échelle.
+	Dans le cadre de l'étude de faisabilité d'un algorithme de détection en temps réel à 95\% de précision, nous disposons d'un set de données d'entrées dans des conditions relativement favorables (voir Figure 1). La caméra fournissant ces images est fixe, les seuls évènements d'occlusion concernent les croisements de piétons, et la zone concernée est une section de route fréquentée uniquement par des piétons, ce qui limite les risques de confusion avec du mobilier urbain ou des véhicules. Les seules contraintes sont l'orientation légèrement verticale de la caméra (ce qui limite la surface identifiable du corps humain) et la profondeur de champ qui implique de devoir gérer les changements d'échelle.\\
 	
 	\begin{figure}
 		\begin{center}			
@@ -77,9 +77,11 @@
 		\end{center}
 		\caption{Données d'entrée}
 	\end{figure}
+	
+	Prenons une approche naïve. Le fond de l'image est fixe, les piétons sont les seuls objets en mouvement (en éliminant les mouvements parasites des feuilles et le bruit d'acquisition) : peut-on faire l'association objet en mouvement~$\Leftrightarrow $~piéton ? La partie \ref{sec:morpho} traite de cette approche.
 
-\section{TYPE-STYLE AND FONTS}
-\label{sec:typestyle}
+\section{APPROCHE MORPHOLOGIQUE}
+\label{sec:morpho}
 
 To achieve the best rendering both in printed proceedings and electronic proceedings, we
 strongly encourage you to use Times-Roman font.  In addition, this will give
@@ -97,8 +99,8 @@ The first paragraph in each section should not be indented, but all the
 following paragraphs within the section should be indented as these paragraphs
 demonstrate.
 
-\section{MAJOR HEADINGS}
-\label{sec:majhead}
+\section{APPROCHE DESCRIPTIVE}
+\label{sec:desc}
 
 Major headings, for example, "1. Introduction", should appear in all capital
 letters, bold face if possible, centered in the column, with one blank line
@@ -209,23 +211,7 @@ You must include your fully completed, signed IEEE copyright release form when
 form when you submit your paper. We {\bf must} have this form before your paper
 can be published in the proceedings.
 
-\section{REFERENCES}
-\label{sec:ref}
-
-List and number all bibliographical references at the end of the
-paper. The references can be numbered in alphabetic order or in
-order of appearance in the document. When referring to them in
-the text, type the corresponding reference number in square
-brackets as shown at the end of this sentence \cite{C2}. An
-additional final page (the fifth page, in most cases) is
-allowed, but must contain only references to the prior
-literature.
-
-% References should be produced using the bibtex program from suitable
-% BiBTeX files (here: strings, refs, manuals). The IEEEbib.bst bibliography
-% style file from IEEE produces unsorted bibliography list.
-% -------------------------------------------------------------------------
 \bibliographystyle{IEEEbib}
-\bibliography{strings,refs}
+\bibliography{refs}
 
 \end{document}

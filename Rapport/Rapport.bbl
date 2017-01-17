@@ -1,13 +1,51 @@
 \begin{thebibliography}{1}
 
-\bibitem{Lamp86}
-A.B. Smith, C.D. Jones, and E.F. Roberts,
-\newblock ``Article title,''
-\newblock {\em Journal}, vol. 62, pp. 291--294, January 1920.
+\bibitem{TV}
+Toshifumi Tsukiyama and Yoshiaki Shirai,
+\newblock ``Detection of the movements of persons from a sparse sequence of tv
+  images.,''
+\newblock {\em Pattern Recognition}, vol. 18, no. 3-4, pp. 207--213, 1985.
 
-\bibitem{C2}
-C.D. Jones, A.B. Smith, and E.F. Roberts,
-\newblock ``Article title,''
-\newblock in {\em Proceedings Title}. IEEE, 2003, vol.~II, pp. 803--806.
+\bibitem{Wavelet}
+Michael Oren, Constantine Papageorgiou, Pawan Sinha, Edgar Osuna, and Tomaso
+  Poggio,
+\newblock ``Pedestrian detection using wavelet templates,''
+\newblock in {\em in Computer Vision and Pattern Recognition}, 1997, pp.
+  193--199.
+
+\bibitem{trainableDet}
+Constantine Papageorgiou, Theodoros Evgeniou, and Tomaso Poggio,
+\newblock ``A trainable pedestrian detection system,''
+\newblock in {\em In Proceedings of Intelligent Vehicles}, 1998, pp. 241--246.
+
+\bibitem{HOG}
+Navneet Dalal and Bill Triggs,
+\newblock ``Histograms of oriented gradients for human detection,''
+\newblock in {\em Proceedings of the 2005 IEEE Computer Society Conference on
+  Computer Vision and Pattern Recognition (CVPR'05) - Volume 1 - Volume 01},
+  Washington, DC, USA, 2005, CVPR '05, pp. 886--893, IEEE Computer Society.
+
+\bibitem{NewPedDet}
+Stefan Walk, Nikodem Majer, Konrad Schindler, and Bernt Schiele,
+\newblock ``New features and insights for pedestrian detection.,''
+\newblock in {\em CVPR}. 2010, pp. 1030--1037, IEEE Computer Society.
+
+\bibitem{VJones}
+Paul Viola, Michael~J. Jones, and Daniel Snow,
+\newblock ``Detecting pedestrians using patterns of motion and appearance,''
+\newblock {\em Int. J. Comput. Vision}, vol. 63, no. 2, pp. 153--161, July
+  2005.
+
+\bibitem{FeatMining}
+Piotr Dollár, Zhuowen Tu, Hai Tao, and Serge Belongie,
+\newblock ``Feature mining for image classification.,''
+\newblock in {\em CVPR}. 2007, IEEE Computer Society.
+
+\bibitem{cowboy}
+Piotr Dollar, Serge Belongie, and Pietro Perona,
+\newblock ``The fastest pedestrian detector in the west,''
+\newblock in {\em Proceedings of the British Machine Vision Conference}. 2010,
+  pp. 68.1--68.11, BMVA Press,
+\newblock doi:10.5244/C.24.68.
 
 \end{thebibliography}
