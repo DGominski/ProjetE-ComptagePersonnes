@@ -69,7 +69,9 @@
 \section{CONTEXTE}
 \label{sec:contexte}
 
-	Dans le cadre de l'étude de faisabilité d'un algorithme de détection en temps réel à 95\% de précision, nous disposons d'un set de données d'entrées dans des conditions relativement favorables (voir Figure 1). La caméra fournissant ces images est fixe, les seuls évènements d'occlusion concernent les croisements de piétons, et la zone concernée est une section de route fréquentée uniquement par des piétons, ce qui limite les risques de confusion avec du mobilier urbain ou des véhicules. Les seules contraintes sont l'orientation légèrement verticale de la caméra (ce qui limite la surface identifiable du corps humain) et la profondeur de champ qui implique de devoir gérer les changements d'échelle.\\
+	Dans le cadre de l'étude de faisabilité d'un algorithme de détection en temps réel à 95\% de précision, nous disposons d'un set de données d'entrées dans des conditions relativement favorables (voir Figure 1). La caméra fournissant ces images est fixe, les seuls évènements d'occlusion concernent les croisements de piétons, et la zone concernée est une section de route fréquentée uniquement par des piétons, ce qui limite les risques de confusion avec du mobilier urbain ou des véhicules. Les seules contraintes sont l'orientation légèrement verticale de la caméra (ce qui limite la surface identifiable du corps humain) et la profondeur de champ qui implique de devoir gérer les changements d'échelle.
+	
+	Nous réalisons notre étude avec Matlab, qui permet un prototypage rapide des algorithmes.\\
 	
 	\begin{figure}
 		\begin{center}			
@@ -79,35 +81,36 @@
 	\end{figure}
 	
 	Prenons une approche naïve. Le fond de l'image est fixe, les piétons sont les seuls objets en mouvement (en éliminant les mouvements parasites des feuilles et le bruit d'acquisition) : peut-on faire l'association objet en mouvement~$\Leftrightarrow $~piéton ? La partie \ref{sec:morpho} traite de cette approche.
+	\\
+	
+	Mais les diverses études sur le sujet \ref{sec:bib} montrent que recourir au couple descripteur/classifieur augmente fortement la précision de l'algorithme. Nous avons donc également implémenté (voir \ref{sec:desc}) cette approche pour évaluer sa pertinence dans notre cas.
 
 \section{APPROCHE MORPHOLOGIQUE}
 \label{sec:morpho}
 
-To achieve the best rendering both in printed proceedings and electronic proceedings, we
-strongly encourage you to use Times-Roman font.  In addition, this will give
-the proceedings a more uniform look.  Use a font that is no smaller than nine
-point type throughout the paper, including figure captions.
-
-In nine point type font, capital letters are 2 mm high.  {\bf If you use the
-smallest point size, there should be no more than 3.2 lines/cm (8 lines/inch)
-vertically.}  This is a minimum spacing; 2.75 lines/cm (7 lines/inch) will make
-the paper much more readable.  Larger type sizes require correspondingly larger
-vertical spacing.  Please do not double-space your paper.  TrueType or
-Postscript Type 1 fonts are preferred.
-
-The first paragraph in each section should not be indented, but all the
-following paragraphs within the section should be indented as these paragraphs
-demonstrate.
+	A travers différentes opérations de filtrages non-linéaires par des éléments structurants, l'approche morphologique permet d'effectuer des traitements rudimentaires sur l'image. L'objectif est d'extraire des régions dans l'image (\emph{"blobs"} dans la documentation anglophone) en les séparant sur une image binaire.
+	
+	Pour se détacher du fond nous commençons par extraire le mouvement. Cela peut se faire par moyennage sur une plage d'images consécutives, par seuillage de la différence entre 2 images, par représentation probabiliste de chaque pixel, par création d'une image temporelle le long d'une ligne...
+	
+	
 
 \section{APPROCHE DESCRIPTIVE}
 \label{sec:desc}
 
-Major headings, for example, "1. Introduction", should appear in all capital
-letters, bold face if possible, centered in the column, with one blank line
-before, and one blank line after. Use a period (".") after the heading number,
-not a colon.
+	Le descripteur qui semble s'être imposé dans le domaine de la reconnaissance humaine de par sa relative simplicité (sans être le plus performant) est l'histogramme des gradients orientés (\emph{HOG}).
+	
+	Introduit et plébiscité par Dalal \& Triggs \cite{HOG} en 2005, l'HOG parcourt des cellules de petite taille, calcule le gradient (orientation + intensité) en chaque pixel, et crée un histogramme des orientations des gradients sur la cellule, pondérées par les intensités.
+	
+	\begin{figure}
+		\begin{center}			
+			\includegraphics[scale=0.3]{Img/HOGtheory}
+		\end{center}
+		\caption{Principe de l'HOG}
+	\end{figure}
 
-\subsection{Subheadings}
+	L'HOG donne de cette manière une bonne idée de la forme générale du cellule, et surtout quantifie cette information sur un nombre de directions et une précision en intensité réglables.
+
+\subsection{Implémentation}
 \label{ssec:subhead}
 
 Subheadings should appear in lower case (initial word capitalized) in
