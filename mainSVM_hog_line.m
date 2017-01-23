@@ -13,7 +13,7 @@ wL = 64;
 stepH = 10;
 
 % Step entre deux fenêtre de détection (en largeur)
-stepPixel = 32;
+stepPixel = 1;
 
 % Paramètres HOG
 HOG_cell = [8 8]; 
