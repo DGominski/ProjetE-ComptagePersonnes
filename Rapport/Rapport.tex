@@ -100,12 +100,11 @@
 	\item ouverture $X = (X \ominus B) \oplus B$.
 	\end{itemize}
 	
-	\subsection{Identification et suivi}
-	L'identification des régions se fait par analyse de connectivité sur l'image noir et blanc obtenue. On extrait les centres de masse de chaque région (centroïdes) pour pouvoir suivre les blobs.
+	\subsection{Identification}
+	L'identification des régions se fait par analyse de connectivité sur l'image binaire obtenue : un filtre parcourt l'image pour associer un label à chaque groupe de pixels, puis un rapide traitement regroupe les labels coïncidents en blobs.
 	
-	On peut alors 
-	
-
+	\subsection{Résultats}
+	On obtient les résultats suivants avec cette approche morphologique.
 \section{APPROCHE DESCRIPTIVE}
 \label{sec:desc}
 
@@ -120,12 +119,12 @@
 		\caption{Principe de l'HOG}
 	\end{figure}
 
-	L'HOG donne de cette manière une bonne idée de la forme générale du cellule, et surtout quantifie cette information sur un nombre de directions et une précision en intensité réglables.
+	L'HOG donne de cette manière une bonne idée de la forme générale sur la cellule, et surtout quantifie cette information sur un nombre de directions et une précision en intensité réglables.
 	
 	\subsection{Implémentation}
-	Pour appliquer ce descripteur, il faut parcourir l'image 
-	fenêtre glissante taille et décalage
-	parcours de chaque fenêtre selon les cells // image entière ou zone définie
+	Pour appliquer ce descripteur, on parcourt l'image avec une fenêtre de taille fixe, décalée à chaque itération d'un certain pas, qui a son importance pour éviter les détections redondantes tout en maintenant une bonne précision. Pour gagner en temps de calcul, et simplifier la gestion de l'échelle variable entre arrière-plan et avant-plan, nous faisons parcourir cette fenêtre sur une zone prédéfinie (milieu de l'image) où l'échelle peut être considérée comme constante (on peut facilement s'affranchir de cette hypothèse en utilisant une fenêtre à taille variable).
+	
+	Le calcul de l'histogramme se fait sur une ce
 	calcul de l'histogramme sur n bins
 	chaque fenetre est décrite par un EV de dimension N = prod([BlocksPerImage, BlockSize, NumBins])
 	SVM linéaire entrainée en dimension N
