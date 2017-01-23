@@ -90,8 +90,20 @@
 
 	A travers différentes opérations de filtrages non-linéaires par des éléments structurants, l'approche morphologique permet d'effectuer des traitements rudimentaires sur l'image. L'objectif est d'extraire des régions dans l'image (\emph{"blobs"} dans la documentation anglophone) en les séparant sur une image binaire.
 	
-	Pour se détacher du fond nous commençons par extraire le mouvement. Cela peut se faire par moyennage sur une plage d'images consécutives, par seuillage de la différence entre 2 images, par représentation probabiliste de chaque pixel, par création d'une image temporelle le long d'une ligne...
+	\subsection{Implémentation}
+	Pour se détacher du fond il faut commencer par extraire le mouvement. Cela peut se faire par moyennage sur une plage d'images consécutives, par seuillage de la différence entre 2 images, par représentation probabiliste de chaque pixel, par création d'une image temporelle le long d'une ligne...
 	
+	Nous avons choisi d'implémenter l'approche morphologique avec cette dernière méthode. On définit donc une ligne de détection sur l'image, sur laquelle on élimine les pixels correspondant au fond par moyennage glissant sur 100 images. 
+	On passe en image binaire par seuillage RGB réglable, afin de pouvoir appliquer les opérations morphologiques, qui se déroulent dans cet ordre :
+	\begin{itemize}
+	\item multiples itérations de l'opération $X_k = (X_{k-1} \oplus B) \cap A^c$ jusqu'à ce que $X_k = X_{k-1}$. Cette opération sert à combler les trous.
+	\item ouverture $X = (X \ominus B) \oplus B$.
+	\end{itemize}
+	
+	\subsection{Identification et suivi}
+	L'identification des régions se fait par analyse de connectivité sur l'image noir et blanc obtenue. On extrait les centres de masse de chaque région (centroïdes) pour pouvoir suivre les blobs.
+	
+	On peut alors 
 	
 
 \section{APPROCHE DESCRIPTIVE}
@@ -101,7 +113,7 @@
 	
 	Introduit et plébiscité par Dalal \& Triggs \cite{HOG} en 2005, l'HOG parcourt des cellules de petite taille, calcule le gradient (orientation + intensité) en chaque pixel, et crée un histogramme des orientations des gradients sur la cellule, pondérées par les intensités.
 	
-	\begin{figure}
+	\begin{figure}[hh]
 		\begin{center}			
 			\includegraphics[scale=0.3]{Img/HOGtheory}
 		\end{center}
@@ -109,8 +121,17 @@
 	\end{figure}
 
 	L'HOG donne de cette manière une bonne idée de la forme générale du cellule, et surtout quantifie cette information sur un nombre de directions et une précision en intensité réglables.
-
-\subsection{Implémentation}
+	
+	\subsection{Implémentation}
+	Pour appliquer ce descripteur, il faut parcourir l'image 
+	fenêtre glissante taille et décalage
+	parcours de chaque fenêtre selon les cells // image entière ou zone définie
+	calcul de l'histogramme sur n bins
+	chaque fenetre est décrite par un EV de dimension N = prod([BlocksPerImage, BlockSize, NumBins])
+	SVM linéaire entrainée en dimension N
+	=> résultat
+	
+	normalisation L2hist
 \label{ssec:subhead}
 
 Subheadings should appear in lower case (initial word capitalized) in
@@ -173,27 +194,6 @@ you prefer, as in this sentence).
 % with a suitable PostScript file name.
 % -------------------------------------------------------------------------
 \begin{figure}[htb]
-
-\begin{minipage}[b]{1.0\linewidth}
-  \centering
-  \centerline{\includegraphics[width=8.5cm]{image1.png}}
-%  \vspace{2.0cm}
-  \centerline{(a) Result 1}\medskip
-\end{minipage}
-%
-\begin{minipage}[b]{.48\linewidth}
-  \centering
-  \centerline{\includegraphics[width=4.0cm]{image3.png}}
-%  \vspace{1.5cm}
-  \centerline{(b) Results 3}\medskip
-\end{minipage}
-\hfill
-\begin{minipage}[b]{0.48\linewidth}
-  \centering
-  \centerline{\includegraphics[width=4.0cm]{image4.png}}
-%  \vspace{1.5cm}
-  \centerline{(c) Result 4}\medskip
-\end{minipage}
 %
 \caption{Example of placing a figure with experimental results.}
 \label{fig:res}
