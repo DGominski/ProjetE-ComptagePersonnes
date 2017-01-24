@@ -61,7 +61,7 @@
 
 	En 1998, cette technique est perfectionnée \cite{trainableDet} pour la rendre universelle en incluant un apprentissage le plus complet possible avec un set de données dédiées, pour permettre l'exécution dans des conditions variées. L'article introduit également la notion d'échelle variable pour la fenêtre de détection.
 
-	Dalal \& Triggs \cite{HOG} publient en 2005 un article de référence dans le domaine (+6000 citations). Ils expliquent une méthode complète, d'implémentation relativement simple, pour mettre en place une chaîne de détection de performances correctes. Leur méthode repose sur l'histogramme des gradients orientés pour décrire la forme d'un piéton, et la décision se fait avec une SVM (support vector machine) linéaire.
+	Dalal \& Triggs \cite{HOG} publient en 2005 un article de référence dans le domaine (+6000 citations). Ils expliquent une méthode complète, d'implémentation relativement simple, pour mettre en place une chaîne de détection de performances correctes. Leur méthode repose sur l'histogramme des gradients orientés pour décrire la forme d'un piéton, et la décision se fait avec une SVM (Support Vector Machine) linéaire.
 
 	Depuis, de nombreuses nouvelles approches ont été proposées, citons entre autres l'utilisation des informations de couleur \cite{NewPedDet}, du mouvement \cite{VJones}, du bootstrapping (réutilisation des résultats, re-training) \cite{NewPedDet}, de très larges sets de données d'apprentissages acquises par data-mining \cite{FeatMining}  \textit{etc.}, avec la problématique du temps de calcul toujours au coeur du problème \cite{cowboy}.
 
@@ -83,7 +83,7 @@
 	Prenons une approche naïve. Le fond de l'image est fixe, les piétons sont les seuls objets en mouvement (en éliminant les mouvements parasites des feuilles et le bruit d'acquisition) : peut-on faire l'association objet en mouvement~$\Leftrightarrow $~piéton ? La partie \ref{sec:morpho} traite de cette approche.
 	\\
 	
-	Mais les diverses études sur le sujet \ref{sec:bib} montrent que recourir au couple descripteur/classifieur augmente fortement la précision de l'algorithme. Nous avons donc également implémenté (voir \ref{sec:desc}) cette approche pour évaluer sa pertinence dans notre cas.
+	Mais les diverses études sur le sujet \ref{sec:bib} montrent que recourir au couple descripteur/classifieur augmente fortement la précision de l'algorithme. Nous avons donc également implémenté (voir partie \ref{sec:desc}) cette approche pour évaluer sa pertinence dans notre cas.
 
 \section{APPROCHE MORPHOLOGIQUE}
 \label{sec:morpho}
@@ -103,8 +103,7 @@
 	\subsection{Identification}
 	L'identification des régions se fait par analyse de connectivité sur l'image binaire obtenue : un filtre parcourt l'image pour associer un label à chaque groupe de pixels, puis un rapide traitement regroupe les labels coïncidents en blobs.
 	
-	\subsection{Résultats}
-	On obtient les résultats suivants avec cette approche morphologique.
+	
 \section{APPROCHE DESCRIPTIVE}
 \label{sec:desc}
 
@@ -124,39 +123,37 @@
 	\subsection{Implémentation}
 	Pour appliquer ce descripteur, on parcourt l'image avec une fenêtre de taille fixe, décalée à chaque itération d'un certain pas, qui a son importance pour éviter les détections redondantes tout en maintenant une bonne précision. Pour gagner en temps de calcul, et simplifier la gestion de l'échelle variable entre arrière-plan et avant-plan, nous faisons parcourir cette fenêtre sur une zone prédéfinie (milieu de l'image) où l'échelle peut être considérée comme constante (on peut facilement s'affranchir de cette hypothèse en utilisant une fenêtre à taille variable).
 	
-	Le calcul de l'histogramme se fait sur une ce
-	calcul de l'histogramme sur n bins
-	chaque fenetre est décrite par un EV de dimension N = prod([BlocksPerImage, BlockSize, NumBins])
-	SVM linéaire entrainée en dimension N
-	=> résultat
 	
-	normalisation L2hist
-\label{ssec:subhead}
+	Le calcul de l'histogramme se fait sur des cellules, qui sont regroupées en blocs glissants sur lesquels on effectue une normalisation en norme 2 pour limiter les effets des changements de luminosité et de contraste sur l'image.
+	L'histogramme calculé sur N valeurs de directions, donne donc un vecteur de taille M, avec 
+	$$ M = NbBlocsParFenetre * TailleBloc * N $$
+ 	
+	\subsection{Classification}
 
-Subheadings should appear in lower case (initial word capitalized) in
-boldface.  They should start at the left margin on a separate line.
- 
-\subsubsection{Sub-subheadings}
-\label{sssec:subsubhead}
+	Pour associer à chaque vecteur de taille M un label binaire d'appartenance à la classe "piétons", nous avons choisi d'utiliser une classification via SVM. A partir d'un set de données d'apprentissage (vecteurs de taille M) associées à un vecteur de classe binaire, la SVM (linéaire dans notre cas) détermine le meilleur hyperplan pour séparer ces deux classes dans l'espace de dimension M correspondant.
+	
+	L'apprentissage se fait avec des imagettes associées à des piétons et des imagettes associées au fond. Il est crucial d'être exhaustif dans cette phase d'apprentissage pour permettre à la SVM de gagner en sélectivité et donc en précision. Il a également été montré \cite{HOG} que les imagettes fournies à la SVM dans le cas de la détection de piétons doivent fournir une information de contexte, il faut donc laisser de la marge autour des piétons.
+	
+	\begin{figure}[h]
+		\begin{center}			
+			\includegraphics[scale=1]{Img/pieton_03}
+		\end{center}
+		\caption{Imagette d'apprentissage - piéton}
+	\end{figure}
+	
+	
+	\begin{figure}[h]
+		\begin{center}			
+			\includegraphics[scale=1]{Img/fond_01}
+		\end{center}
+		\caption{Imagette d'apprentissage - fond}
+	\end{figure}
 
-Sub-subheadings, as in this paragraph, are discouraged. However, if you
-must use them, they should appear in lower case (initial word
-capitalized) and start at the left margin on a separate line, with paragraph
-text beginning on the following line.  They should be in italics.
+\section{\'{E}valuation quantitative}
+\label{sec:evalquant}
 
-\section{PRINTING YOUR PAPER}
-\label{sec:print}
-
-Print your properly formatted text on high-quality, 8.5 x 11-inch white printer
-paper. A4 paper is also acceptable, but please leave the extra 0.5 inch (12 mm)
-empty at the BOTTOM of the page and follow the top and left margins as
-specified.  If the last page of your paper is only partially filled, arrange
-the columns so that they are evenly balanced if possible, rather than having
-one long column.
-
-In LaTeX, to start a new column (but not a new page) and help balance the
-last-page column lengths, you can use the command ``$\backslash$pagebreak'' as
-demonstrated on this page (see the LaTeX source below).
+	Pour évaluer et comparer les performances des algorithmes étudiés nous utiliserons l'outil classique de la matrice de confusion. Nous mesurons également le temps de calcul pour estimer la compatibilité avec une exécution temps réel (\emph{cf} partie \ref{sec:contexte}).
+	L'évaluation des performances se fait sur une séquence d'images des données d'entrée.  
 
 \section{PAGE NUMBERING}
 \label{sec:page}

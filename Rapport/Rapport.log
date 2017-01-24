@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.9)  23 JAN 2017 16:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.9)  24 JAN 2017 22:42
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -613,14 +613,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 83--85
 <Img/HOGtheory.jpg, id=9, 563.85657pt x 217.5628pt>
 File: Img/HOGtheory.jpg Graphic file (type jpg)
  <use Img/HOGtheory.jpg>
-Package pdftex.def Info: Img/HOGtheory.jpg used on input line 117.
+Package pdftex.def Info: Img/HOGtheory.jpg used on input line 116.
 (pdftex.def)             Requested size: 169.15826pt x 65.26933pt.
 
 [2 <./Img/detection_0156.jpeg> <./Img/HOGtheory.jpg>]
+<Img/pieton_03.jpeg, id=19, 40.15pt x 100.375pt>
+File: Img/pieton_03.jpeg Graphic file (type jpg)
+ <use Img/pieton_03.jpeg>
+Package pdftex.def Info: Img/pieton_03.jpeg used on input line 139.
+(pdftex.def)             Requested size: 40.14989pt x 100.37474pt.
 
-LaTeX Warning: Citation `Lamp86' on page 3 undefined on input line 180.
+<Img/fond_01.jpeg, id=20, 40.15pt x 100.375pt>
+File: Img/fond_01.jpeg Graphic file (type jpg)
+ <use Img/fond_01.jpeg>
+Package pdftex.def Info: Img/fond_01.jpeg used on input line 147.
+(pdftex.def)             Requested size: 40.14989pt x 100.37474pt.
 
-(Rapport.bbl [3]) [4
+
+LaTeX Warning: Citation `Lamp86' on page 3 undefined on input line 177.
+
+(Rapport.bbl [3 <./Img/pieton_03.jpeg> <./Img/fond_01.jpeg>]) [4
 
 ] (Rapport.aux)
 
@@ -628,10 +640,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3616 strings out of 493333
- 47468 string characters out of 3139189
- 123230 words of memory out of 3000000
- 7085 multiletter control sequences out of 15000+200000
+ 3624 strings out of 493333
+ 47638 string characters out of 3139189
+ 123208 words of memory out of 3000000
+ 7091 multiletter control sequences out of 15000+200000
  16216 words of font info for 39 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,8n,30p,820b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -644,9 +656,9 @@ c/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rapport.pdf (4 pages, 229466 bytes).
+Output written on Rapport.pdf (4 pages, 235752 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
+ 56 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
