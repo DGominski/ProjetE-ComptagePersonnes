@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.9)  24 JAN 2017 22:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9.6100 64-bit) (preloaded format=pdflatex 2017.1.9)  25 JAN 2017 17:10
 entering extended mode
 **./Rapport.tex
 (Rapport.tex
@@ -464,38 +464,122 @@ Now handling font encoding U ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) (Rapport.aux)
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen117
+\captionmargin@=\dimen118
+\captionwidth=\dimen119
+\caption@tempdima=\dimen120
+\caption@indent=\dimen121
+\caption@parindent=\dimen122
+\caption@hangindent=\dimen123
+Package caption Info: The definition of \@makecaption has been changed,
+(caption)             frenchb will NOT customize it.
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2-> \vskip 10pt \setbox \@
+tempboxa \hbox {#1. #2} \ifdim \wd \@tempboxa >\hsize #1. #2\par \else \hbox to
+\hsize {\hfil \box \@tempboxa \hfil } \fi .
+\c@ContinuedFloat=\count105
+)
+\c@KVtest=\count106
+\sf@farskip=\skip53
+\sf@captopadj=\dimen124
+\sf@capskip=\skip54
+\sf@nearskip=\skip55
+\c@subfigure=\count107
+\c@subfigure@save=\count108
+\c@lofdepth=\count109
+\c@subtable=\count110
+\c@subtable@save=\count111
+\c@lotdepth=\count112
+\sf@top=\skip56
+\sf@bottom=\skip57
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\framed\framed.sty"
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip58
+\fb@frw=\dimen125
+\fb@frh=\dimen126
+\FrameRule=\dimen127
+\FrameSep=\dimen128
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+) (Rapport.aux
+
+LaTeX Warning: Label `fig:f1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:f1' multiply defined.
+
+
+LaTeX Warning: Label `fig:f2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:f2' multiply defined.
+
+
+LaTeX Warning: Label `fig:f1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:f1' multiply defined.
+
+
+LaTeX Warning: Label `fig:f2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:f2' multiply defined.
+
+)
 \openout1 = `Rapport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 31.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 34.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count105
-\scratchdimen=\dimen117
+\scratchcounter=\count113
+\scratchdimen=\dimen129
 \scratchbox=\box28
-\nofMPsegments=\count106
-\nofMParguments=\count107
+\nofMPsegments=\count114
+\nofMParguments=\count115
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count108
-\MPscratchDim=\dimen118
-\MPnumerator=\count109
-\makeMPintoPDFobject=\count110
+\MPscratchCnt=\count116
+\MPscratchDim=\dimen130
+\MPnumerator=\count117
+\makeMPintoPDFobject=\count118
 \everyMPtoPDFconversion=\toks24
 ) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
@@ -542,55 +626,58 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
-LaTeX Info: Redefining \degres on input line 31.
+LaTeX Info: Redefining \degres on input line 34.
 
 
 Package frenchb.ldf Warning: Figures' and tables' captions might look like
 (frenchb.ldf)                `Figure 1:' which is wrong in French.
 (frenchb.ldf)                Check your class or packages to change this;
-(frenchb.ldf)                reported on input line 31.
+(frenchb.ldf)                reported on input line 34.
 
-LaTeX Info: Redefining \dots on input line 31.
-LaTeX Info: Redefining \up on input line 31.
+LaTeX Info: Redefining \dots on input line 34.
+LaTeX Info: Redefining \up on input line 34.
 
 Package frenchb.ldf Warning: OT1 encoding should not be used for French.
 (frenchb.ldf)                Add \usepackage[T1]{fontenc} to the preamble
-(frenchb.ldf)                of your document, on input line 31.
+(frenchb.ldf)                of your document, on input line 34.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 39.
 
-Overfull \hbox (4.3635pt too wide) in paragraph at lines 47--48
+Overfull \hbox (4.3635pt too wide) in paragraph at lines 50--51
 \OT1/ptm/m/n/10 de pi[]etons dans les syst[]emes num[]eriques est une probl[]em
 atique
  []
 
 
-Overfull \hbox (0.13757pt too wide) in paragraph at lines 64--65
+Overfull \hbox (0.13757pt too wide) in paragraph at lines 67--68
 \OT1/ptm/m/n/10 dans le do-maine (+6000 ci-ta-tions). Ils ex-pliquent une m[]et
 hode
  []
 
 
-Underfull \hbox (badness 1231) in paragraph at lines 64--65
+Underfull \hbox (badness 1231) in paragraph at lines 67--68
 \OT1/ptm/m/n/10 en place une cha[]ne de d[]etection de per-for-mances cor-
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 66--67
+Underfull \hbox (badness 1776) in paragraph at lines 69--70
 []\OT1/ptm/m/n/10 Depuis, de nom-breuses nou-velles ap-proches ont []et[]e
  []
 
 
-Underfull \hbox (badness 2142) in paragraph at lines 66--67
+Underfull \hbox (badness 2142) in paragraph at lines 69--70
 \OT1/ptm/m/n/10 pro-pos[]ees, ci-tons entre autres l'uti-li-sa-tion des in-for-
 ma-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
@@ -603,50 +690,124 @@ Underfull \hbox (badness 10000) in paragraph at lines 74--75
 File: Img/detection_0156.jpeg Graphic file (type jpg)
 
 <use Img/detection_0156.jpeg>
-Package pdftex.def Info: Img/detection_0156.jpeg used on input line 78.
+Package pdftex.def Info: Img/detection_0156.jpeg used on input line 81.
 (pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--85
+Underfull \hbox (badness 10000) in paragraph at lines 86--88
 
  []
 
 <Img/HOGtheory.jpg, id=9, 563.85657pt x 217.5628pt>
 File: Img/HOGtheory.jpg Graphic file (type jpg)
  <use Img/HOGtheory.jpg>
-Package pdftex.def Info: Img/HOGtheory.jpg used on input line 116.
+Package pdftex.def Info: Img/HOGtheory.jpg used on input line 119.
 (pdftex.def)             Requested size: 169.15826pt x 65.26933pt.
 
 [2 <./Img/detection_0156.jpeg> <./Img/HOGtheory.jpg>]
 <Img/pieton_03.jpeg, id=19, 40.15pt x 100.375pt>
 File: Img/pieton_03.jpeg Graphic file (type jpg)
  <use Img/pieton_03.jpeg>
-Package pdftex.def Info: Img/pieton_03.jpeg used on input line 139.
+Package pdftex.def Info: Img/pieton_03.jpeg used on input line 142.
 (pdftex.def)             Requested size: 40.14989pt x 100.37474pt.
 
 <Img/fond_01.jpeg, id=20, 40.15pt x 100.375pt>
 File: Img/fond_01.jpeg Graphic file (type jpg)
  <use Img/fond_01.jpeg>
-Package pdftex.def Info: Img/fond_01.jpeg used on input line 147.
+Package pdftex.def Info: Img/fond_01.jpeg used on input line 150.
 (pdftex.def)             Requested size: 40.14989pt x 100.37474pt.
 
+<Img/MATCONFHOGtest1.jpg, id=21, 211.54031pt x 52.69687pt>
+File: Img/MATCONFHOGtest1.jpg Graphic file (type jpg)
 
-LaTeX Warning: Citation `Lamp86' on page 3 undefined on input line 177.
+<use Img/MATCONFHOGtest1.jpg>
+Package pdftex.def Info: Img/MATCONFHOGtest1.jpg used on input line 169.
+(pdftex.def)             Requested size: 105.76988pt x 26.34836pt.
 
-(Rapport.bbl [3 <./Img/pieton_03.jpeg> <./Img/fond_01.jpeg>]) [4
+<Img/MATCONFMORPHOtest1.jpg, id=22, 215.30438pt x 52.69687pt>
+File: Img/MATCONFMORPHOtest1.jpg Graphic file (type jpg)
+
+<use Img/MATCONFMORPHOtest1.jpg>
+Package pdftex.def Info: Img/MATCONFMORPHOtest1.jpg used on input line 171.
+(pdftex.def)             Requested size: 107.65192pt x 26.34836pt.
+
+<Img/MATCONFHOGtest3.jpg, id=23, 217.5628pt x 52.69687pt>
+File: Img/MATCONFHOGtest3.jpg Graphic file (type jpg)
+
+<use Img/MATCONFHOGtest3.jpg>
+Package pdftex.def Info: Img/MATCONFHOGtest3.jpg used on input line 182.
+(pdftex.def)             Requested size: 108.78113pt x 26.34836pt.
+
+<Img/MATCONFMORPHOtest3.jpg, id=24, 217.5628pt x 52.69687pt>
+File: Img/MATCONFMORPHOtest3.jpg Graphic file (type jpg)
+
+<use Img/MATCONFMORPHOtest3.jpg>
+Package pdftex.def Info: Img/MATCONFMORPHOtest3.jpg used on input line 184.
+(pdftex.def)             Requested size: 108.78113pt x 26.34836pt.
+
+<Img/MATCONFHOGtest2.jpg, id=25, 211.54031pt x 52.69687pt>
+File: Img/MATCONFHOGtest2.jpg Graphic file (type jpg)
+
+<use Img/MATCONFHOGtest2.jpg>
+Package pdftex.def Info: Img/MATCONFHOGtest2.jpg used on input line 195.
+(pdftex.def)             Requested size: 105.76988pt x 26.34836pt.
+ [3 <./Img/pieton_03.jpeg> <./Img/fond_01.jpeg> <./Img/MATCONFHOGtest1.jpg> <./
+Img/MATCONFMORPHOtest1.jpg> <./Img/MATCONFHOGtest3.jpg> <./Img/MATCONFMORPHOtes
+t3.jpg> <./Img/MATCONFHOGtest2.jpg>]
+<Img/TRDISK.jpg, id=29, 469.755pt x 121.95563pt>
+File: Img/TRDISK.jpg Graphic file (type jpg)
+ <use Img/TRDISK.jpg>
+Package pdftex.def Info: Img/TRDISK.jpg used on input line 217.
+(pdftex.def)             Requested size: 234.87692pt x 60.97765pt.
+
+<Img/TRSQUARE.jpg, id=30, 469.755pt x 121.95563pt>
+File: Img/TRSQUARE.jpg Graphic file (type jpg)
+ <use Img/TRSQUARE.jpg>
+Package pdftex.def Info: Img/TRSQUARE.jpg used on input line 219.
+(pdftex.def)             Requested size: 234.87692pt x 60.97765pt.
+
+<Img/TPSDISK.jpg, id=31, 469.755pt x 121.95563pt>
+File: Img/TPSDISK.jpg Graphic file (type jpg)
+ <use Img/TPSDISK.jpg>
+Package pdftex.def Info: Img/TPSDISK.jpg used on input line 230.
+(pdftex.def)             Requested size: 234.87692pt x 60.97765pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Img/Identfications_Redondants.jpg, id=32, 421.575pt x 316.18124pt>
+File: Img/Identfications_Redondants.jpg Graphic file (type jpg)
+
+<use Img/Identfications_Redondants.jpg>
+Package pdftex.def Info: Img/Identfications_Redondants.jpg used on input line 2
+42.
+(pdftex.def)             Requested size: 168.627pt x 126.47025pt.
+
+Underfull \hbox (badness 1895) in paragraph at lines 247--248
+[]\OT1/ptm/m/n/10 Cependant nous confir-mons l'ex-cel-lente per-for-mance
+ []
+
+
+Underfull \hbox (badness 1205) in paragraph at lines 247--248
+\OT1/ptm/m/n/10 rec-tan-gu-laire d'[]echelle va-riable. Cette m[]ethode n[]eces
+site
+ []
+
+(Rapport.bbl [4 <./Img/TRDISK.jpg> <./Img/TRSQUARE.jpg> <./Img/TPSDISK.jpg> <./
+Img/Identfications_Redondants.jpg>]) [5
 
 ] (Rapport.aux)
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3624 strings out of 493333
- 47638 string characters out of 3139189
- 123208 words of memory out of 3000000
- 7091 multiletter control sequences out of 15000+200000
- 16216 words of font info for 39 fonts, out of 3000000 for 9000
+ 4961 strings out of 493333
+ 71636 string characters out of 3139189
+ 149609 words of memory out of 3000000
+ 8400 multiletter control sequences out of 15000+200000
+ 17801 words of font info for 41 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,8n,30p,820b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,49p,820b,439s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
@@ -656,9 +817,9 @@ c/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
 7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on Rapport.pdf (4 pages, 235752 bytes).
+Output written on Rapport.pdf (5 pages, 493786 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
+ 68 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

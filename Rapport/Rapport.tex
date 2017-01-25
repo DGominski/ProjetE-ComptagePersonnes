@@ -7,11 +7,14 @@
 \usepackage[frenchb]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{framed,color}
 % Example definitions.
 % --------------------
 \def\x{{\mathbf x}}
 \def\L{{\cal L}}
+\definecolor{shadecolor}{rgb}{0.97,0.99,0.98}
 
 % Title.
 % ------
@@ -152,63 +155,96 @@
 \section{\'{E}valuation quantitative}
 \label{sec:evalquant}
 
-	Pour évaluer et comparer les performances des algorithmes étudiés nous utiliserons l'outil classique de la matrice de confusion. Nous mesurons également le temps de calcul pour estimer la compatibilité avec une exécution temps réel (\emph{cf} partie \ref{sec:contexte}).
-	L'évaluation des performances se fait sur une séquence d'images des données d'entrée.  
+	\subsection{Méthodologie}
+	Pour évaluer, opimiser et comparer les performances des algorithmes étudiés nous utiliserons l'outil classique de la matrice de confusion. Nous mesurons également le temps de calcul pour estimer la compatibilité avec une exécution temps réel (\emph{cf} partie \ref{sec:contexte}).
+	
+	\subsection{Résultats}
+	
+	\subsubsection{Comparaison des  descripteurs}	
+	\label{sec:desccomp}
+	Commençons par une comparaison via les matrice de confusion des descripteurs appliqués à une série de 200 imagettes correspondant soit à un piéton soit à du fond. La SVM est entraînée avec 20 imagettes.
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat[HOG + SVM]{\includegraphics[scale=0.5]{Img/MATCONFHOGtest1}\label{fig:f1}}
+		\hfill
+		\subfloat[Morhpologie]{\includegraphics[scale=0.5]{Img/MATCONFMORPHOtest1}\label{fig:f2}}
+		\caption{Matrices de confusion des descripteurs}
+	\end{figure}
+	
+	L'histogramme des gradients est manifestement plus performant ici.
+	
+	\subsubsection{Influence du fond}
+	Pour juger de l'influence du fond, nous répétons le test sur les mêmes imagettes mais avec un fond fixe (rue, pas de végétation).
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat[HOG + SVM]{\includegraphics[scale=0.5]{Img/MATCONFHOGtest3}\label{fig:f1}}
+		\hfill
+		\subfloat[Morhpologie]{\includegraphics[scale=0.5]{Img/MATCONFMORPHOtest3}\label{fig:f2}}
+		\caption{Influence du fond}
+	\end{figure}
 
-\section{PAGE NUMBERING}
-\label{sec:page}
+	On constate une nette amélioration de l'approche morphologique qui n'est plus perturbée par les pixels variables de la végétation, néanmoins les performances restent inférieures à celles du couple HOG+SVM.
+	
+	\subsubsection{Influence de l'apprentissage}
+	Comme pressenti l'entraînement de la SVM influence les résultats, ci-dessous les résultats obtenus dans les mêmes conditions qu'au paragraphe \ref{sec:desccomp} mais avec un set d'apprentissage de 50 imagettes.
+	
+	\begin{figure}[h]
+		\begin{center}			
+			\includegraphics[scale=0.5]{Img/MATCONFHOGtest2}
+		\end{center}
+		\caption{Influence de l'apprentissage}
+	\end{figure}
+	Il y a effectivement une amélioration avec un plus grand set d'apprentissage, mais notons l'augmentation des faux négatifs dûs à une plus grande sélectivité, qui peut amener à rejeter des piétons.
+	
+		\begin{shaded}
+			\textbf{Malgré de meilleures performances} sur le papier, le couple HOG+SVM s'est révélé trop conséquent en temps de caclul (de l'ordre de 1 IPS) dans l'implémentation sur Matlab pour le prototypage. Nous avons donc continué notre étude sur l'approche morphologique, en essayant d'optimiser les paramètres pour obtenir des performances satisfaisantes.
+		\end{shaded}
 
-Please do {\bf not} paginate your paper.  Page numbers, session numbers, and
-conference identification will be inserted when the paper is included in the
-proceedings.
+	\subsubsection{Optimisation de la morphologie}
+	Principalement 2 paramètres influent sur les performances de l'analyse morphologique :
+	\begin{itemize}
+		\item Le seuil d'intensité pour la conversion binaire de l'image RGB. Ce seuil peut être différent pour chaque couleur si le fond présente des propriétés particulières en couleur mais dans notre cas un seuil de gris est suffisant.
+		\item Le type de l'élément structurant pour les opérations morphologiques
+		\item La taille de l'élément structurant pour les opérations morphologiques
+	\end{itemize}
 
-\section{ILLUSTRATIONS, GRAPHS, AND PHOTOGRAPHS}
-\label{sec:illust}
+	Ci-dessous les résultats obtenus sur une batterie de tests pour des images issues des données d'entrées, segmentées pour isoler la zone de passage des piétons (route), avec l'algorithme complet proposant un comptage de piétons :
+	
+	\begin{figure}[h]
+		\centering
+		\subfloat[\'{E}lément structurant discoïde]{\includegraphics[scale=0.5]{Img/TRDISK}\label{fig:f1}}
+		\hfill
+		\subfloat[\'{E}lément structurant carré]{\includegraphics[scale=0.5]{Img/TRSQUARE}\label{fig:f2}}
+		\caption{Tests d'optimisation}
+	\end{figure}
+	
+	On obtient donc à priori des résultats optimaux pour un seuil de 0.175 et un masque discoïde de diamètre 3, de l'ordre de 90\% de précision.
+	
+	\subsubsection{Temps de calcul}
+	Malgré quelques variations le temps de calcul reste relativement stable et donc indépendant des variations des paramètres. Ci-dessous des relevés pour différentes valeur de paramètres et un élément structurant en disque.
+	
+	\begin{figure}[h]
+		\begin{center}			
+			\includegraphics[scale=0.5]{Img/TPSDISK}
+		\end{center}
+		\caption{Temps de calcul (images par seconde)}
+	\end{figure}
+	On obtient un temps satisfaisant, qui répond correctement au cahier des charges (contrainte temps réel).
+	
+	
+\section{Conclusion}
+	
+	Les résultats satisfaisants avec l'approche morphologique montrent que cette méthode peut se révéler pertinente dans notre cas. En effet, malgré une forte sensibilité aux situations complexes (végétation mouvante, groupe de piétons), il est possible d'optimiser le jeu de paramètres de manière à obtenir des résultats corrects. Le cas présent étant relativement simple dans son contexte, nous sommes convaincus que l'approche morphologique est la plus rentable en terme de temps de conception, de temps de calcul, de complexité, et de résultats, et mérite d'être considérée dans des cas similaires.
+	\begin{figure}[hh]
+		\begin{center}			
+			\includegraphics[scale=0.4]{Img/Identfications_Redondants}
+		\end{center}
+		\caption{Algorithme final de comptage}
+	\end{figure}
 
-Illustrations must appear within the designated margins.  They may span the two
-columns.  If possible, position illustrations at the top of columns, rather
-than in the middle or at the bottom.  Caption and number every illustration.
-All halftone illustrations must be clear black and white prints.  Colors may be
-used, but they should be selected so as to be readable when printed on a
-black-only printer.
-
-Since there are many ways, often incompatible, of including images (e.g., with
-experimental results) in a LaTeX document, below is an example of how to do
-this \cite{Lamp86}.
-
-\section{FOOTNOTES}
-\label{sec:foot}
-
-Use footnotes sparingly (or not at all!) and place them at the bottom of the
-column on the page on which they are referenced. Use Times 9-point type,
-single-spaced. To help your readers, avoid using footnotes altogether and
-include necessary peripheral observations in the text (within parentheses, if
-you prefer, as in this sentence).
-
-% Below is an example of how to insert images. Delete the ``\vspace'' line,
-% uncomment the preceding line ``\centerline...'' and replace ``imageX.ps''
-% with a suitable PostScript file name.
-% -------------------------------------------------------------------------
-\begin{figure}[htb]
-%
-\caption{Example of placing a figure with experimental results.}
-\label{fig:res}
-%
-\end{figure}
-
-
-% To start a new column (but not a new page) and help balance the last-page
-% column length use \vfill\pagebreak.
-% -------------------------------------------------------------------------
-%\vfill
-%\pagebreak
-
-\section{COPYRIGHT FORMS}
-\label{sec:copyright}
-
-You must include your fully completed, signed IEEE copyright release form when
-form when you submit your paper. We {\bf must} have this form before your paper
-can be published in the proceedings.
+	Cependant nous confirmons l'excellente performance du couple HOG + SVM qui se révèle très robuste, et peut s'adapter à toutes les situations avec un bon apprentissage. La difficulté est de trouver une manière efficace d'optimiser les calculs pour limiter le coût algorithmique, qui peut être conséquent si il faut parcourir toute l'image avec une fenêtre rectangulaire d'échelle variable. Cette méthode nécessite beaucoup d'étapes de traitements, toutes réglables avec un jeu de paramètres. Nous n'avons pas de doute sur la faisabilité de cette méthode dans notre cas, mais il faut alors utiliser un langage plus bas niveau et considérer un plus long temps d'étude pour parvenir à une solution répondant au cahier des charges.
 
 \bibliographystyle{IEEEbib}
 \bibliography{refs}
