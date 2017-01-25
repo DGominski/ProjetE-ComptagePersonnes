@@ -99,8 +99,8 @@
 	Nous avons choisi d'implémenter l'approche morphologique avec cette dernière méthode. On définit donc une ligne de détection sur l'image, sur laquelle on élimine les pixels correspondant au fond par moyennage glissant sur 100 images. 
 	On passe en image binaire par seuillage RGB réglable, afin de pouvoir appliquer les opérations morphologiques, qui se déroulent dans cet ordre :
 	\begin{itemize}
-	\item multiples itérations de l'opération $X_k = (X_{k-1} \oplus B) \cap A^c$ jusqu'à ce que $X_k = X_{k-1}$. Cette opération sert à combler les trous.
-	\item ouverture $X = (X \ominus B) \oplus B$.
+	\item multiples itérations de l'opération $X_k = (X_{k-1} \oplus B) \cap A^c$ ("remplissage") jusqu'à ce que $X_k = X_{k-1}$. Cette opération sert à combler les trous.
+	\item ouverture $X = (X \ominus B) \oplus B$. Cette opération supprime les éléments qui "dépassent".
 	\end{itemize}
 	
 	\subsection{Identification}
