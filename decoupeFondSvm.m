@@ -6,11 +6,11 @@ imgName = 'detection_0000.jpeg';
 A = imread(imgName); 
 [L H C] = size(A);
 
-wL = 100;
-wH = 40;
-step = 10;
+wL = 128;
+wH = 64;
+step = 32;
 
-cheminOut = 'D:\Documents\INSA LYON\2016-2017\Mini-projet-TDSI-Git\ProjetE-ComptagePersonnes\dataSetFondRGB\';
+cheminOut = 'D:\Documents\INSA LYON\2016-2017\Mini-projet-TDSI-Git\ProjetE-ComptagePersonnes\dataSetFondRGB_64_128\';
 
 index = 1;
 for h = 1:step:H-wH
